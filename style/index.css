@@ -1,0 +1,48 @@
+@charset="UTF-8";
+/*header*/
+.header {
+	position: absolute;
+	width: 100%;
+	height: 5rem;
+	top: 0;
+	left: 0;
+	background: #EA413C;
+}
+.header .logo {
+	width: 5.2rem;
+	height: 2.8rem;
+	margin-top: 1rem;
+	margin-left: 5vw;
+}
+.header .icon24 {
+	position: absolute;
+	width: 2.6rem;
+	height: 2.6rem;
+	top: 1.1rem;
+	right: 15vw;
+}
+.header .icon-sandian {
+	position: absolute;
+	color: #fff;
+	font-size: 2.6rem;
+	top: 1.3rem;
+	right: 3vw;
+}
+/*nav*/
+.nav {
+	width: 100%;
+	height: 4.8rem;
+	position: absolute;
+	top: 4.8rem;
+	padding-bottom: 0.2rem;
+	border-bottom:solid 0.5rem #EEEEEE;
+	font-size: 1.4rem;
+}
+.nav >ul li.nav-active {
+	color: #EA413C;
+	border-bottom: solid 0.2rem #EA413C;
+}
+.nav >ul li {
+	line-height: 4.3rem;
+	text-align: center;
+}
