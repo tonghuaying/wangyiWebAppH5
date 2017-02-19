@@ -26,5 +26,79 @@
 			<li class='flex-sub'><a href='##'><i class='iconfont icon-xiangxiajiantou'></i></a></li>
 		</ul>
 	</nav>
+	<div class='main'>
+		<div class='adver'>
+			<ul class='adimgs'>
+				<li><a href='##'><img src='images/1.jpg'/></a></li>
+				<li><a href='##'><img src='images/2.jpg'/></a></li>
+				<li><a href='##'><img src='images/3.jpg'/></a></li>
+				<li><a href='##'><img src='images/4.jpg'/></a></li>
+			</ul>
+			<ul class='dots'></ul>
+		</div>
+	</div>
+	<footer class='footer'>
+		<ul class='flex'>
+			<li class='flex-sub footer-active'>
+				<i class='iconfont icon-file-document-box'></i>
+				<p>新闻</p>
+			</li>
+			<li class='flex-sub'>
+				<i class='iconfont icon-yuedu'></i>
+				<p>阅读</p>
+			</li>
+			<li class='flex-sub'>
+				<i class='iconfont icon-arrowrightb'></i>
+				<p>视听</p>
+			</li>
+			<li class='flex-sub'>
+				<i class='iconfont icon-access-point'></i>
+				<p>发现</p>
+			</li>
+			<li class='flex-sub'>
+				<i class='iconfont icon-usercircle'></i>
+				<p>我的</p>
+			</li>
+		</ul>
+	</footer>
+<script src='js/jquery-3.1.1.min.js'></script>
+<script>
+$(function(){
+	var winWidth = $(window).width();
+	var imgLi = $('.adimgs li');
+
+	for(var i = 0,len = imgLi.length ; i < len; i++){
+		$(imgLi[i]).width(winWidth);
+	}
+
+	//克隆第一个
+	var clone = $('.adver .adimgs li').first().clone();
+	$('.adver .adimgs').append(clone);
+	var size = $('.adver .adimgs li').length;
+	for(var j = 0; j < size-1; j++){
+		$('.adver .dots').append('<li></li>');
+	}
+	$('.adver .dots li').first().addClass('active');
+	//核心运动函数
+	var i = 0;
+	function move(){
+		i++;
+		if(i == size){
+			$('.adver .adimgs').css({left:'0'});
+			i = 1;
+		}
+		$('.adver .adimgs').stop().animate({left:-i*winWidth});
+		if(i == size-1){
+			$('.adver .dots li').eq(0).addClass('active').siblings().removeClass('active');
+		}else{
+			$('.adver .dots li').eq(i).addClass('active').siblings().removeClass('active');
+		}
+		
+	}
+	var t = setInterval(move,1500);
+
+
+})
+</script>
 </body>
 </html>
